@@ -83,12 +83,13 @@ export default async function CategoryPage(props: Props) {
     notFound()
   }
 
-  const region = await getRegion(params.countryCode)
-
   return (
     <CategoryTemplate
       category={productCategory}
-      currencyCode={region?.currency_code || "dkk"}
+      sortBy={sortBy}
+      page={page}
+      countryCode={params.countryCode}
+      optionValueIds={optionValueIds}
     />
   )
 }

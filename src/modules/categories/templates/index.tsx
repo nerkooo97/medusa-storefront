@@ -1,23 +1,31 @@
-"use client"
-
-import type { SearchClient } from "instantsearch.js"
-import { Configure, InstantSearch } from "react-instantsearch"
-import { PRODUCT_INDEX_NAME, searchClient } from "@lib/search-client"
+import { notFound } from "next/navigation"
+import { Suspense } from "react"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import StoreHits from "@modules/store/components/store-hits"
-import StoreRefinements from "@modules/store/components/store-refinements"
+import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-grid"
+import PaginatedProducts from "@modules/store/templates/paginated-products"
 import { HttpTypes } from "@medusajs/types"
 import { ChevronRight } from "lucide-react"
-
-const PRODUCT_LIMIT = 12
+import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
+import { OptionValueIds } from "@lib/util/product-option-filters"
 
 export default function CategoryTemplate({
   category,
-  currencyCode,
+  sortBy,
+  page,
+  countryCode,
+  optionValueIds,
 }: {
   category: HttpTypes.StoreProductCategory
-  currencyCode: string
+  sortBy?: SortOptions
+  page?: string
+  countryCode: string
+  optionValueIds?: OptionValueIds
 }) {
+  const pageNumber = page ? parseInt(page) : 1
+  const sort = sortBy || "created_at"
+
+  if (!category || !countryCode) notFound()
+
   const parents = [] as HttpTypes.StoreProductCategory[]
 
   const getParents = (cat: HttpTypes.StoreProductCategory) => {
@@ -29,11 +37,6 @@ export default function CategoryTemplate({
 
   getParents(category)
   parents.reverse()
-
-  const categoryNames = [
-    category.name,
-    ...(category.category_children?.map((c) => c.name) || []),
-  ]
 
   return (
     <div
@@ -99,28 +102,23 @@ export default function CategoryTemplate({
         </div>
       )}
 
-      {/* Main Content Layout with Dynamic InstantSearch Filters */}
-      <div className="flex flex-col small:flex-row small:items-start gap-2">
-        <InstantSearch
-          indexName={PRODUCT_INDEX_NAME}
-          searchClient={searchClient as unknown as SearchClient}
-          future={{ preserveSharedStateOnUnmount: true }}
-        >
-          <Configure
-            hitsPerPage={PRODUCT_LIMIT}
-            facetFilters={[categoryNames.map((name) => `category:${name}`)]}
-          />
-          <StoreRefinements
-            currencyCode={currencyCode}
-            hideCategoryFilter={true}
-          />
-          <div className="w-full min-w-0">
-            <StoreHits
-              hitsPerPage={PRODUCT_LIMIT}
-              currencyCode={currencyCode}
+      {/* Main Content Layout with PaginatedProducts */}
+      <div className="w-full">
+        <Suspense
+          fallback={
+            <SkeletonProductGrid
+              numberOfProducts={category.products?.length ?? 8}
             />
-          </div>
-        </InstantSearch>
+          }
+        >
+          <PaginatedProducts
+            sortBy={sort}
+            page={pageNumber}
+            categoryId={category.id}
+            countryCode={countryCode}
+            optionValueIds={optionValueIds}
+          />
+        </Suspense>
       </div>
     </div>
   )
