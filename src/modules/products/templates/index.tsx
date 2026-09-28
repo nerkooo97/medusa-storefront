@@ -103,11 +103,11 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
             {/* 2. Buy Box Card: Cijena, Dodaj u omiljene, Količina, DODAJ U KORPU */}
             <Suspense
               fallback={
-                <ProductActions
-                  disabled={true}
-                  product={product}
-                  region={region}
-                />
+                <div className="flex flex-col gap-y-3 p-4 rounded-2xl bg-card border border-border animate-pulse">
+                  <div className="h-6 bg-muted rounded-md w-1/3" />
+                  <div className="h-10 bg-muted rounded-lg w-full" />
+                  <div className="h-12 bg-primary/20 rounded-xl w-full" />
+                </div>
               }
             >
               <ProductActionsWrapper id={product.id} region={region} />
