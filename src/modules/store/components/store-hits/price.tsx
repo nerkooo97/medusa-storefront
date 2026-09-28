@@ -1,0 +1,59 @@
+"use client"
+
+import { indexedCurrency, priceAttribute } from "@lib/search-client"
+import { convertToLocale } from "@lib/util/money"
+import { Text, clx } from "@modules/common/components/ui"
+
+/** The per-currency price fields a hit may carry, e.g. `min_price_eur`. */
+export type HitPricing = Record<string, unknown>
+
+type HitPriceProps = {
+  hit: HitPricing
+  currencyCode: string
+}
+
+const amount = (value: unknown) => (typeof value === "number" ? value : null)
+
+const HitPrice = ({ hit, currencyCode }: HitPriceProps) => {
+  const currency_code = indexedCurrency(currencyCode)
+  const min_price = amount(hit[priceAttribute("min_price", currencyCode)])
+  const max_price = amount(hit[priceAttribute("max_price", currencyCode)])
+  const original_price = amount(
+    hit[priceAttribute("original_price", currencyCode)]
+  )
+  const on_sale = hit[priceAttribute("on_sale", currencyCode)] === true
+
+  if (min_price === null) {
+    return null
+  }
+
+  const format = (value: number) =>
+    convertToLocale({ amount: value, currency_code })
+
+  const max = max_price ?? min_price
+  const isRange = max > min_price
+
+  return (
+    <div className="flex flex-wrap items-baseline gap-1.5" data-testid="product-price">
+      <Text
+        className={clx("text-sm sm:text-base font-bold tracking-tight", {
+          "text-rose-600": on_sale,
+          "text-foreground": !on_sale,
+        })}
+        data-testid="price"
+      >
+        {isRange ? `${format(min_price)} - ${format(max)}` : format(min_price)}
+      </Text>
+      {!isRange && on_sale && original_price !== null && (
+        <Text
+          className="line-through text-xs text-muted-foreground font-normal"
+          data-testid="original-price"
+        >
+          {format(original_price)}
+        </Text>
+      )}
+    </div>
+  )
+}
+
+export default HitPrice
