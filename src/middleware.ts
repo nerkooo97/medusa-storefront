@@ -1,10 +1,14 @@
 import { HttpTypes } from "@medusajs/types"
 import { NextRequest, NextResponse } from "next/server"
+import { renderLockedPageHtml } from "@lib/util/preview-lock"
 
 const BACKEND_URL = process.env.MEDUSA_BACKEND_URL || process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL
 
 const PUBLISHABLE_API_KEY = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
 const DEFAULT_REGION = process.env.NEXT_PUBLIC_DEFAULT_REGION || "ba"
+
+const STORE_PROTECTED = process.env.STORE_PROTECTED === "true"
+const STORE_SECRET_TOKEN = process.env.STORE_SECRET_TOKEN || "piko2026"
 
 const regionMapCache = {
   regionMap: new Map<string, HttpTypes.StoreRegion>(),
@@ -104,6 +108,44 @@ async function getCountryCode(
 export async function middleware(request: NextRequest) {
   if (request.nextUrl.pathname.includes(".")) {
     return NextResponse.next()
+  }
+
+  // Provjera tajnog linka za privatni pristup trgovini
+  if (STORE_PROTECTED) {
+    const secretCookie = request.cookies.get("piko_preview_access")?.value
+    const querySecret =
+      request.nextUrl.searchParams.get("preview") ||
+      request.nextUrl.searchParams.get("secret") ||
+      request.nextUrl.searchParams.get("token")
+
+    // 1. Ako je unesen ispravan token preko query parametra (tajni link ili forma)
+    if (querySecret && querySecret === STORE_SECRET_TOKEN) {
+      const cleanUrl = request.nextUrl.clone()
+      cleanUrl.searchParams.delete("preview")
+      cleanUrl.searchParams.delete("secret")
+      cleanUrl.searchParams.delete("token")
+
+      const response = NextResponse.redirect(cleanUrl)
+      response.cookies.set("piko_preview_access", STORE_SECRET_TOKEN, {
+        path: "/",
+        maxAge: 60 * 60 * 24 * 30, // 30 dana
+        httpOnly: true,
+        sameSite: "lax",
+      })
+      return response
+    }
+
+    // 2. Ako korisnik već posjeduje validan cookie, puštamo ga
+    const hasValidCookie = secretCookie === STORE_SECRET_TOKEN
+    if (!hasValidCookie) {
+      const hasError = Boolean(querySecret && querySecret !== STORE_SECRET_TOKEN)
+      return new NextResponse(renderLockedPageHtml(hasError), {
+        status: 403,
+        headers: {
+          "content-type": "text/html; charset=utf-8",
+        },
+      })
+    }
   }
 
   const cacheIdCookie = request.cookies.get("_medusa_cache_id")
