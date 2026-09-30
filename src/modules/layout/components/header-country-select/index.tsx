@@ -106,7 +106,7 @@ export default function HeaderCountrySelect({
                 </div>
                 <span className="text-sm">{option.label}</span>
               </div>
-              {isSelected && <Check className="size-4 text-blue-600 stroke-[2.5]" />}
+              {isSelected && <Check className="size-4 text-foreground stroke-[2.5]" />}
             </DropdownMenuItem>
           )
         })}

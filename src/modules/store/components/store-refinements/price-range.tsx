@@ -70,13 +70,13 @@ const PriceRange = ({ currencyCode }: { currencyCode: string }) => {
           aria-label="Raspon cijene"
           data-testid="price-range"
         >
-          <Slider.Track className="relative h-1 w-full grow rounded-full bg-ui-border-base">
-            <Slider.Range className="absolute h-full rounded-full bg-[#0053E2]" />
+          <Slider.Track className="relative h-1 w-full grow rounded-full bg-border">
+            <Slider.Range className="absolute h-full rounded-full bg-primary" />
           </Slider.Track>
           {value.map((_, index) => (
             <Slider.Thumb
               key={index}
-              className="block h-4 w-4 rounded-full border border-[#0053E2] bg-white shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-[#0053E2] cursor-grab active:cursor-grabbing"
+              className="block h-4 w-4 rounded-full border-2 border-[#16140F] bg-primary shadow-xs outline-none focus-visible:ring-2 focus-visible:ring-primary cursor-grab active:cursor-grabbing"
               aria-label={index === 0 ? "Minimalna cijena" : "Maksimalna cijena"}
             />
           ))}

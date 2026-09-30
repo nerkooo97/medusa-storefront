@@ -1,0 +1,31 @@
+# robots.txt for piko.ba
+User-agent: *
+Allow: /
+Allow: /llms.txt
+Allow: /.well-known/ard.json
+Disallow: /cart
+Disallow: /checkout
+Disallow: /*/cart
+Disallow: /*/checkout
+Disallow: /*/account
+
+# AI & Search Engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: OraBot
+Allow: /
+
+Sitemap: https://piko.ba/sitemap.xml

@@ -36,7 +36,7 @@ export default function ProductPrice({
         </span>
 
         {selectedPrice.price_type === "sale" && (
-          <span className="text-xs font-bold px-2 py-0.5 rounded-md bg-destructive/10 text-destructive">
+          <span className="text-xs font-black px-2 py-0.5 rounded-md bg-[#FFC915] text-[#16140F] shadow-2xs">
             -{selectedPrice.percentage_diff}%
           </span>
         )}

@@ -4,6 +4,12 @@ import { listProducts } from "@lib/data/products"
 import { getRegion, listRegions } from "@lib/data/regions"
 import ProductTemplate from "@modules/products/templates"
 import { HttpTypes } from "@medusajs/types"
+import JsonLd from "@modules/common/components/json-ld"
+import {
+  getProductSchema,
+  getBreadcrumbSchema,
+  getCanonicalSiteUrl,
+} from "@lib/util/seo-schema"
 
 type Props = {
   params: Promise<{ countryCode: string; handle: string }>
@@ -37,7 +43,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
     if (!region) {
       return {
-        title: "Proizvod | Alati & Mašine",
+        title: "Proizvod",
       }
     }
 
@@ -48,22 +54,22 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
     if (!product) {
       return {
-        title: "Proizvod | Alati & Mašine",
+        title: "Proizvod",
       }
     }
 
     return {
-      title: `${product.title} | Alati & Mašine`,
+      title: product.title,
       description: `${product.title}`,
       openGraph: {
-        title: `${product.title} | Alati & Mašine`,
+        title: `${product.title} | pıko`,
         description: `${product.title}`,
         images: product.thumbnail ? [product.thumbnail] : [],
       },
     }
   } catch {
     return {
-      title: "Proizvod | Alati & Mašine",
+      title: "Proizvod",
     }
   }
 }
@@ -89,13 +95,49 @@ export default async function ProductPage(props: Props) {
   }
 
   const images = getImagesForVariant(pricedProduct, selectedVariantId)
+  const siteUrl = getCanonicalSiteUrl()
+
+  const productSchema = getProductSchema({
+    product: pricedProduct,
+    region,
+    countryCode: params.countryCode,
+    siteUrl,
+  })
+
+  const breadcrumbItems: { name: string; url: string }[] = [
+    { name: "Naslovna", url: `${siteUrl}/${params.countryCode}` },
+  ]
+
+  const primaryCategory = pricedProduct.categories?.[0]
+  if (primaryCategory) {
+    breadcrumbItems.push({
+      name: primaryCategory.name,
+      url: `${siteUrl}/${params.countryCode}/categories/${primaryCategory.handle}`,
+    })
+  } else if (pricedProduct.collection) {
+    breadcrumbItems.push({
+      name: pricedProduct.collection.title,
+      url: `${siteUrl}/${params.countryCode}/collections/${pricedProduct.collection.handle}`,
+    })
+  }
+
+  breadcrumbItems.push({
+    name: pricedProduct.title,
+    url: `${siteUrl}/${params.countryCode}/products/${pricedProduct.handle}`,
+  })
+
+  const breadcrumbSchema = getBreadcrumbSchema(breadcrumbItems)
 
   return (
-    <ProductTemplate
-      product={pricedProduct}
-      region={region}
-      countryCode={params.countryCode}
-      images={images ?? []}
-    />
+    <>
+      <JsonLd data={productSchema} />
+      <JsonLd data={breadcrumbSchema} />
+      <ProductTemplate
+        product={pricedProduct}
+        region={region}
+        countryCode={params.countryCode}
+        images={images ?? []}
+      />
+    </>
   )
 }

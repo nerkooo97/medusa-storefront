@@ -84,7 +84,7 @@ const CurrentRefinements = ({ currencyCode }: { currencyCode: string }) => {
         {canClearAll && (
           <button
             onClick={clearAll}
-            className="txt-compact-small-plus text-[#0053E2] hover:underline font-medium"
+            className="txt-compact-small-plus text-foreground hover:underline font-semibold"
             data-testid="clear-refinements"
           >
             Poništi sve
@@ -105,7 +105,7 @@ const CurrentRefinements = ({ currencyCode }: { currencyCode: string }) => {
               <button
                 onClick={() => refine(refinement)}
                 aria-label={`Remove filter ${label}`}
-                className="border-ui-border-interactive text-ui-fg-base border text-small-regular h-8 rounded-rounded px-3 flex items-center gap-x-1.5 transition-colors duration-150 hover:bg-ui-bg-base-hover"
+                className="border-border text-foreground bg-primary/15 border text-small-regular h-8 rounded-lg px-3 flex items-center gap-x-1.5 transition-colors duration-150 hover:bg-primary/25 hover:border-primary"
                 data-testid="remove-refinement"
               >
                 {label}

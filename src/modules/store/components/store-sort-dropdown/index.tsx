@@ -56,10 +56,10 @@ const StoreSortDropdown = ({ currencyCode }: StoreSortDropdownProps) => {
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
         className={clx(
-          "inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-card border text-xs sm:text-sm font-medium transition-all shadow-2xs hover:border-[#0053E2]/50 hover:bg-muted/40",
+          "inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-card border text-xs sm:text-sm font-medium transition-all shadow-2xs hover:border-primary hover:bg-muted/40",
           isOpen
-            ? "border-[#0053E2] ring-1 ring-[#0053E2]/20 text-[#0053E2]"
-            : "border-border/80 text-foreground"
+            ? "border-primary ring-1 ring-primary/30 text-foreground"
+            : "border-border text-foreground"
         )}
         aria-haspopup="listbox"
         aria-expanded={isOpen}
@@ -67,7 +67,7 @@ const StoreSortDropdown = ({ currencyCode }: StoreSortDropdownProps) => {
         title="Sortiraj proizvode"
         data-testid="store-sort-dropdown-trigger"
       >
-        <div className="size-6 rounded-md bg-[#0053E2]/10 text-[#0053E2] flex items-center justify-center shrink-0">
+        <div className="size-6 rounded-md bg-primary/20 text-foreground flex items-center justify-center shrink-0">
           <ArrowUpDown className="size-3.5 stroke-[2.2]" />
         </div>
         <span className="font-medium text-foreground text-xs sm:text-sm">
@@ -88,7 +88,7 @@ const StoreSortDropdown = ({ currencyCode }: StoreSortDropdownProps) => {
         <div
           role="listbox"
           aria-label="Opcije sortiranja"
-          className="absolute right-0 top-full mt-2 z-40 min-w-[220px] w-max max-w-[90vw] bg-card border border-border/80 rounded-xl shadow-lg p-1.5 animate-in fade-in zoom-in-95 duration-100"
+          className="absolute right-0 top-full mt-2 z-40 min-w-[220px] w-max max-w-[90vw] bg-card border border-border rounded-xl shadow-lg p-1.5 animate-in fade-in zoom-in-95 duration-100"
           data-testid="store-sort-dropdown-menu"
         >
           <div className="px-2.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-muted-foreground border-b border-border/50 mb-1">
@@ -110,13 +110,13 @@ const StoreSortDropdown = ({ currencyCode }: StoreSortDropdownProps) => {
                   className={clx(
                     "w-full flex items-center justify-between gap-3 px-3 py-2 rounded-lg text-xs transition-colors text-left",
                     isSelected
-                      ? "bg-[#0053E2]/10 text-[#0053E2] font-semibold"
-                      : "text-foreground hover:bg-muted/70 hover:text-[#0053E2]"
+                      ? "bg-primary/20 text-foreground font-bold"
+                      : "text-foreground hover:bg-muted/70 hover:text-foreground"
                   )}
                 >
                   <span>{item.label}</span>
                   {isSelected && (
-                    <Check className="size-3.5 text-[#0053E2] shrink-0" />
+                    <Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" />
                   )}
                 </button>
               )

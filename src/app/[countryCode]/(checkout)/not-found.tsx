@@ -3,7 +3,7 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import { Home, ShoppingCart, HelpCircle, SearchX } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Stranica nije pronađena (404) | Alati & Mašine",
+  title: "Stranica nije pronađena (404) | pıko",
   description: "Stranica koju tražite ne postoji ili je premještena.",
 }
 
@@ -12,14 +12,14 @@ export default function NotFound() {
     <div className="min-h-[calc(100vh-200px)] flex items-center justify-center py-16 px-4">
       <div className="max-w-xl w-full text-center flex flex-col items-center">
         {/* Subtle pill badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0053E2]/10 border border-[#0053E2]/20 text-[#0053E2] text-xs font-bold uppercase tracking-wider mb-6">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/20 border border-primary/30 text-foreground text-xs font-bold uppercase tracking-wider mb-6">
           <SearchX className="size-4" />
           <span>Greška 404</span>
         </div>
 
         {/* Big stylized 404 watermark */}
         <div className="relative mb-3 flex flex-col items-center justify-center">
-          <span className="text-8xl sm:text-9xl font-black text-[#0053E2]/10 select-none tracking-tighter leading-none">
+          <span className="text-8xl sm:text-9xl font-black text-foreground/5 select-none tracking-tighter leading-none">
             404
           </span>
           <h1 className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight -mt-6 sm:-mt-8">
@@ -36,7 +36,7 @@ export default function NotFound() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto mb-10">
           <LocalizedClientLink
             href="/cart"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-[#0053E2] hover:bg-[#0046c0] text-white font-semibold text-sm shadow-sm transition-all duration-200 active:scale-[0.98]"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary hover:brightness-105 text-primary-foreground font-black text-sm shadow-sm transition-all duration-200 active:scale-[0.98] contrast-btn"
           >
             <ShoppingCart className="size-4" />
             <span>Povratak u korpu</span>

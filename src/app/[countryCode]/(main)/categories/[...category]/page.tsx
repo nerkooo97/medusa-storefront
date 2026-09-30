@@ -7,6 +7,8 @@ import { HttpTypes, StoreRegion } from "@medusajs/types"
 import CategoryTemplate from "@modules/categories/templates"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 import { parseOptionValueIds } from "@lib/util/product-option-filters"
+import JsonLd from "@modules/common/components/json-ld"
+import { getBreadcrumbSchema, getCanonicalSiteUrl } from "@lib/util/seo-schema"
 
 type Props = {
   params: Promise<{ category: string[]; countryCode: string }>
@@ -28,11 +30,11 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
     if (!productCategory) {
       return {
-        title: "Kategorija | Alati & Mašine",
+        title: "Kategorija",
       }
     }
 
-    const title = `${productCategory.name} | Alati & Mašine`
+    const title = productCategory.name
     const description = productCategory.description ?? `${title} kategorija.`
 
     return {
@@ -44,7 +46,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     }
   } catch {
     return {
-      title: "Kategorija | Alati & Mašine",
+      title: "Kategorija",
     }
   }
 }
@@ -61,13 +63,42 @@ export default async function CategoryPage(props: Props) {
     notFound()
   }
 
+  const parents: HttpTypes.StoreProductCategory[] = []
+  const getParents = (cat: HttpTypes.StoreProductCategory) => {
+    if (cat.parent_category) {
+      parents.push(cat.parent_category)
+      getParents(cat.parent_category)
+    }
+  }
+  getParents(productCategory)
+  parents.reverse()
+
+  const siteUrl = getCanonicalSiteUrl()
+  const breadcrumbItems = [
+    { name: "Naslovna", url: `${siteUrl}/${params.countryCode}` },
+    { name: "Svi proizvodi", url: `${siteUrl}/${params.countryCode}/store` },
+    ...parents.map((p) => ({
+      name: p.name,
+      url: `${siteUrl}/${params.countryCode}/categories/${p.handle}`,
+    })),
+    {
+      name: productCategory.name,
+      url: `${siteUrl}/${params.countryCode}/categories/${productCategory.handle}`,
+    },
+  ]
+
+  const breadcrumbSchema = getBreadcrumbSchema(breadcrumbItems)
+
   return (
-    <CategoryTemplate
-      category={productCategory}
-      sortBy={sortBy}
-      page={page}
-      countryCode={params.countryCode}
-      optionValueIds={optionValueIds}
-    />
+    <>
+      <JsonLd data={breadcrumbSchema} />
+      <CategoryTemplate
+        category={productCategory}
+        sortBy={sortBy}
+        page={page}
+        countryCode={params.countryCode}
+        optionValueIds={optionValueIds}
+      />
+    </>
   )
 }

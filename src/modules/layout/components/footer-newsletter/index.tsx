@@ -18,33 +18,33 @@ export default function FooterNewsletter() {
   }
 
   return (
-    <div className="rounded-2xl border border-border bg-card p-6 shadow-2xs flex flex-col justify-between">
+    <div className="rounded-2xl border border-white/10 bg-[#211E18] p-6 shadow-sm flex flex-col justify-between">
       <div>
         {/* Header: Mail icon + Title */}
         <div className="flex items-center gap-2.5 mb-5">
           <div className="flex items-center justify-center size-6 rounded-md text-primary">
             <Mail className="size-5 stroke-[2]" />
           </div>
-          <h3 className="text-base font-bold text-foreground tracking-tight">
+          <h3 className="text-base font-bold text-[#FAF6EC] tracking-tight">
             {config.title}
           </h3>
         </div>
 
         {/* Input Form with Arrow Submit */}
         {isSubmitted ? (
-          <div className="py-3 px-3 bg-muted rounded-lg text-xs text-foreground font-medium mb-4">
+          <div className="py-3 px-3 bg-white/10 rounded-lg text-xs text-[#FAF6EC] font-medium mb-4">
             Hvala vam na prijavi na naš newsletter!
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="mb-4">
-            <div className="relative flex items-center border-b border-border pb-1.5 focus-within:border-foreground transition-colors">
+            <div className="relative flex items-center border-b border-white/20 pb-1.5 focus-within:border-primary transition-colors">
               <input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder={config.placeholder}
-                className="w-full bg-transparent text-xs text-foreground placeholder:text-muted-foreground outline-none pr-8 py-1"
+                className="w-full bg-transparent text-xs text-[#FAF6EC] placeholder:text-[#FAF6EC]/50 outline-none pr-8 py-1"
               />
               <button
                 type="submit"
@@ -58,11 +58,11 @@ export default function FooterNewsletter() {
         )}
 
         {/* Disclaimer / Privacy Text */}
-        <p className="text-[11px] text-muted-foreground leading-relaxed">
+        <p className="text-[11px] text-[#FAF6EC]/60 leading-relaxed">
           {config.disclaimer}
           <LocalizedClientLink
             href={config.termsHref}
-            className="text-foreground underline underline-offset-2 hover:text-primary transition-colors ml-1"
+            className="text-[#FAF6EC] underline underline-offset-2 hover:text-primary transition-colors ml-1"
           >
             {config.termsText}
           </LocalizedClientLink>

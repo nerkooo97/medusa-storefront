@@ -97,11 +97,11 @@ export default function ProductInfo({ product }: ProductInfoProps) {
           Stanje:{" "}
           {inStock ? (
             <span className="font-semibold text-foreground flex items-center gap-1.5">
-              Dostupno <span className="size-2 rounded-full bg-emerald-500 inline-block" />
+              Dostupno <span className="size-2 rounded-full bg-primary inline-block" />
             </span>
           ) : (
-            <span className="font-semibold text-rose-600 flex items-center gap-1.5">
-              Rasprodano <span className="size-2 rounded-full bg-rose-500 inline-block" />
+            <span className="font-semibold text-muted-foreground flex items-center gap-1.5">
+              Rasprodano <span className="size-2 rounded-full bg-muted-foreground/40 inline-block" />
             </span>
           )}
         </span>

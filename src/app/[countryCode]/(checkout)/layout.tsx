@@ -11,21 +11,21 @@ export default function CheckoutLayout({
   return (
     <div className="w-full min-h-screen bg-background text-foreground flex flex-col justify-between">
       {/* Checkout Header */}
-      <header className="h-16 sm:h-20 bg-[#0053E2] text-white sticky top-0 z-40 shadow-xs">
+      <header className="h-16 sm:h-20 bg-ink text-paper sticky top-0 z-40 shadow-xs border-b border-white/10">
         <nav className="flex h-full items-center content-container justify-between gap-4">
           {/* Back to Cart Link */}
           <LocalizedClientLink
             href="/cart"
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-white/80 hover:text-white transition-colors flex-1 basis-0"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-paper/80 hover:text-primary transition-colors flex-1 basis-0"
             data-testid="back-to-cart-link"
           >
-            <ArrowLeft className="size-4 text-white" />
+            <ArrowLeft className="size-4 text-primary" />
             <span className="hidden sm:inline">Nazad u korpu</span>
             <span className="sm:hidden">Nazad</span>
           </LocalizedClientLink>
 
           {/* Store Logo */}
-          <Logo data-testid="store-link" />
+          <Logo variant="dark" data-testid="store-link" />
 
           {/* Right Spacer for balanced centering */}
           <div className="flex-1 basis-0" />

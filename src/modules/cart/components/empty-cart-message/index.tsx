@@ -1,6 +1,6 @@
 import React from "react"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import { ShoppingBag, ArrowRight, ShieldCheck, Truck, Headphones, Sparkles, LayoutGrid } from "lucide-react"
+import { ShoppingBag, ArrowRight, ShieldCheck, Truck, Headphones, LayoutGrid } from "lucide-react"
 
 const EmptyCartMessage = () => {
   return (
@@ -15,7 +15,6 @@ const EmptyCartMessage = () => {
             <ShoppingBag className="size-10 sm:size-11 stroke-[1.7]" />
           </div>
           <span className="absolute -bottom-1 -right-1 size-7 sm:size-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-xs">
-            <Sparkles className="size-3.5 sm:size-4" />
           </span>
         </div>
 

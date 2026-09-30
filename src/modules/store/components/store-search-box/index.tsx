@@ -53,7 +53,7 @@ const StoreSearchBox = () => {
         }}
         placeholder="Pretraži ponudu artikala..."
         aria-label="Pretraži proizvode"
-        className="w-full bg-card border border-border/80 focus:border-[#0053E2] focus:ring-1 focus:ring-[#0053E2] rounded-xl pl-10 pr-10 py-3 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground shadow-2xs [&::-webkit-search-cancel-button]:hidden"
+        className="w-full bg-card border border-border focus:border-primary focus:ring-1 focus:ring-primary rounded-xl pl-10 pr-10 py-3 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground shadow-2xs [&::-webkit-search-cancel-button]:hidden"
         data-testid="store-search-input"
       />
       {inputValue && (

@@ -6,8 +6,8 @@ import StoreTemplate from "@modules/store/templates"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 
 export const metadata: Metadata = {
-  title: "Svi proizvodi | Alati & Mašine",
-  description: "Istražite našu cjelokupnu ponudu profesionalnih alata i mašina.",
+  title: "Svi proizvodi",
+  description: "Istražite našu cjelokupnu ponudu mašina, alata i opreme za dom.",
 }
 
 type Params = {

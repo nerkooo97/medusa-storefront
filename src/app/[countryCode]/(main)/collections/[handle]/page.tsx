@@ -30,17 +30,17 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
     if (!collection) {
       return {
-        title: "Kolekcija | Alati & Mašine",
+        title: "Kolekcija",
       }
     }
 
     return {
-      title: `${collection.title} | Alati & Mašine`,
+      title: collection.title,
       description: `${collection.title} kolekcija`,
     }
   } catch {
     return {
-      title: "Kolekcija | Alati & Mašine",
+      title: "Kolekcija",
     }
   }
 }

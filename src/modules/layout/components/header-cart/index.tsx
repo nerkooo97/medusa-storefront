@@ -19,7 +19,7 @@ export default async function HeaderCart() {
       <div className="relative flex items-center justify-center">
         <ShoppingCart className="size-6 text-white stroke-[1.8]" />
         {totalItems > 0 && (
-          <span className="absolute -top-1.5 -right-2 bg-white text-primary text-[10px] font-black min-w-4 h-4 px-1 rounded-full flex items-center justify-center shadow-xs">
+          <span className="absolute -top-1.5 -right-2 bg-primary text-primary-foreground text-[10px] font-black min-w-4 h-4 px-1 rounded-full flex items-center justify-center shadow-xs">
             {totalItems}
           </span>
         )}

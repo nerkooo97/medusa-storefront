@@ -210,8 +210,8 @@ const Shipping: React.FC<ShippingProps> = ({
                     className={clx(
                       "relative p-5 rounded-xl border text-left cursor-pointer transition-all duration-200 flex flex-col justify-between group select-none min-h-[140px]",
                       showPickupOptions === PICKUP_OPTION_ON
-                        ? "border-[#0053E2] bg-[#0053E2]/5 shadow-xs ring-1 ring-[#0053E2]/20"
-                        : "border-border/80 bg-background hover:bg-muted/30 hover:border-[#0053E2]/40 shadow-2xs"
+                        ? "border-primary bg-primary/10 shadow-xs ring-1 ring-primary/40"
+                        : "border-border/80 bg-card hover:bg-muted/30 hover:border-primary/50 shadow-2xs"
                     )}
                   >
                     <div>
@@ -221,14 +221,14 @@ const Shipping: React.FC<ShippingProps> = ({
                             className={clx(
                               "size-9 rounded-xl flex items-center justify-center shrink-0 transition-colors",
                               showPickupOptions === PICKUP_OPTION_ON
-                                ? "bg-[#0053E2]/10 text-[#0053E2]"
+                                ? "bg-primary text-primary-foreground font-bold"
                                 : "bg-muted text-muted-foreground group-hover:text-foreground"
                             )}
                           >
                             <Store className="size-4.5 stroke-[2]" />
                           </div>
                           <div>
-                            <span className="text-sm font-bold text-foreground group-hover:text-[#0053E2] transition-colors block">
+                            <span className="text-sm font-bold text-foreground transition-colors block">
                               Lično preuzimanje u trgovini
                             </span>
                             <span className="text-xs text-muted-foreground">
@@ -241,8 +241,8 @@ const Shipping: React.FC<ShippingProps> = ({
                           className={clx(
                             "size-5 rounded-full border flex items-center justify-center shrink-0 mt-0.5 transition-colors",
                             showPickupOptions === PICKUP_OPTION_ON
-                              ? "border-[#0053E2] bg-[#0053E2] text-white"
-                              : "border-muted-foreground/30 bg-card group-hover:border-[#0053E2]/50"
+                              ? "border-primary bg-primary text-primary-foreground"
+                              : "border-muted-foreground/30 bg-card group-hover:border-primary/50"
                           )}
                         >
                           {showPickupOptions === PICKUP_OPTION_ON && (
@@ -254,7 +254,7 @@ const Shipping: React.FC<ShippingProps> = ({
 
                     <div className="flex items-baseline justify-between pt-3 border-t border-border/50 mt-3">
                       <span className="text-xs text-muted-foreground">Cijena</span>
-                      <span className="text-base font-extrabold text-emerald-600">
+                      <span className="text-base font-black text-foreground">
                         Besplatno
                       </span>
                     </div>
@@ -293,8 +293,8 @@ const Shipping: React.FC<ShippingProps> = ({
                       className={clx(
                         "relative p-5 rounded-xl border text-left cursor-pointer transition-all duration-200 flex flex-col justify-between min-h-[140px] group select-none",
                         isSelected
-                          ? "border-[#0053E2] bg-[#0053E2]/5 shadow-xs ring-1 ring-[#0053E2]/20"
-                          : "border-border/80 bg-background hover:bg-muted/30 hover:border-[#0053E2]/40 shadow-2xs",
+                          ? "border-primary bg-primary/10 shadow-xs ring-1 ring-primary/40"
+                          : "border-border/80 bg-card hover:bg-muted/30 hover:border-primary/50 shadow-2xs",
                         {
                           "opacity-50 cursor-not-allowed": isDisabled,
                         }
@@ -308,7 +308,7 @@ const Shipping: React.FC<ShippingProps> = ({
                               className={clx(
                                 "size-9 rounded-xl flex items-center justify-center shrink-0 transition-colors",
                                 isSelected
-                                  ? "bg-[#0053E2]/10 text-[#0053E2]"
+                                  ? "bg-primary text-primary-foreground font-bold"
                                   : "bg-muted text-muted-foreground group-hover:text-foreground"
                               )}
                             >
@@ -319,7 +319,7 @@ const Shipping: React.FC<ShippingProps> = ({
                               )}
                             </div>
                             <div>
-                              <span className="text-sm font-bold text-foreground group-hover:text-[#0053E2] transition-colors block">
+                              <span className="text-sm font-bold text-foreground transition-colors block">
                                 {option.name}
                               </span>
                               <span className="text-xs text-muted-foreground">
@@ -334,8 +334,8 @@ const Shipping: React.FC<ShippingProps> = ({
                             className={clx(
                               "size-5 rounded-full border flex items-center justify-center shrink-0 mt-0.5 transition-colors",
                               isSelected
-                                ? "border-[#0053E2] bg-[#0053E2] text-white"
-                                : "border-muted-foreground/30 bg-card group-hover:border-[#0053E2]/50"
+                                ? "border-primary bg-primary text-primary-foreground"
+                                : "border-muted-foreground/30 bg-card group-hover:border-primary/50"
                             )}
                           >
                             {isSelected && <Check className="size-3 stroke-[3]" />}
@@ -351,7 +351,7 @@ const Shipping: React.FC<ShippingProps> = ({
                         <span className="text-base font-extrabold text-foreground">
                           {option.price_type === "flat" ? (
                             option.amount === 0 ? (
-                              <span className="text-emerald-600 font-bold">
+                              <span className="text-foreground font-bold">
                                 Besplatno
                               </span>
                             ) : (

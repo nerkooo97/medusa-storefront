@@ -70,6 +70,14 @@ module.exports = {
           4: "hsl(var(--chart-4))",
           5: "hsl(var(--chart-5))",
         },
+        piko: {
+          yellow: "#FFC915",
+          ink: "#16140F",
+          paper: "#FAF6EC",
+          border: "#E5DFD0",
+          muted: "#F3EEDF",
+          card: "#FFFFFF",
+        },
         grey: {
           0: "#FFFFFF",
           5: "#F9FAFB",
@@ -95,6 +103,10 @@ module.exports = {
         large: "16px",
         circle: "9999px",
       },
+      boxShadow: {
+        "2xs": "0 1px 2px 0 rgba(0, 0, 0, 0.03)",
+        xs: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+      },
       maxWidth: {
         "8xl": "100rem",
       },
@@ -112,13 +124,26 @@ module.exports = {
       },
       fontFamily: {
         sans: [
-          "Inter",
+          "var(--font-bricolage)",
+          "Roboto",
           "-apple-system",
           "BlinkMacSystemFont",
           "Segoe UI",
+          "sans-serif",
+        ],
+        heading: [
+          "var(--font-heading)",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "sans-serif",
+        ],
+        unbounded: [
+          "var(--font-heading)",
+          "sans-serif",
+        ],
+        bricolage: [
+          "var(--font-bricolage)",
           "Roboto",
-          "Helvetica Neue",
-          "Ubuntu",
           "sans-serif",
         ],
       },

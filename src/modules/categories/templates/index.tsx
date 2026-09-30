@@ -76,7 +76,7 @@ export default function CategoryTemplate({
       {/* Page Title & Description banner */}
       <div className="mb-6 sm:mb-8 pb-4 border-b border-border/60">
         <h1
-          className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground"
+          className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground font-heading"
           data-testid="category-page-title"
         >
           {category.name}
@@ -94,7 +94,7 @@ export default function CategoryTemplate({
             <LocalizedClientLink
               key={child.id}
               href={`/categories/${child.handle}`}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl border border-border/80 bg-card hover:border-[#0053E2]/50 hover:bg-[#0053E2]/5 text-xs font-semibold text-foreground transition-all shadow-2xs whitespace-nowrap shrink-0"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl border border-border bg-card hover:border-primary hover:bg-primary/10 text-xs font-semibold text-foreground transition-all shadow-2xs whitespace-nowrap shrink-0"
             >
               <span>{child.name}</span>
             </LocalizedClientLink>

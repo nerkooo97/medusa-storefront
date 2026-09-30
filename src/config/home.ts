@@ -42,16 +42,22 @@ export interface HomeConfig {
   }[]
 
   categoriesSection: {
-    badge: string
+    badge?: string
     title: string
     viewAllText: string
     viewAllLink: string
+    /**
+     * Lista popularnih kategorija.
+     * Svaka kategorija ima naziv (title), link (link) i sliku (imageUrl).
+     */
     items: {
       title: string
-      handle: string
-      description: string
-      icon: "battery" | "zap" | "wrench" | "warehouse" | "trees" | "shield"
+      link: string
       imageUrl?: string | null
+      imageAlt?: string
+      handle?: string
+      description?: string
+      icon?: string
     }[]
   }
 
@@ -84,21 +90,21 @@ export interface HomeConfig {
 
 export const homeConfig: HomeConfig = {
   hero: {
-    badge: "Profesionalni alati",
-    title: "Vrhunski alati i oprema za profesionalce i majstore",
+    badge: "pıko.ba — Mašine i alati",
+    title: "Sve za dom, na jednom mjestu.",
     subtitle:
-      "Širok asortiman akumulatorskih mašina, električnog i ručnog alata uz brzu dostavu i garanciju.",
+      "Vrhunske mašine, profesionalni i ručni alati, oprema za radionicu i vrt uz brzu dostavu i garanciju.",
     primaryCta: {
       text: "Pregledaj ponudu",
       link: "/store",
     },
     secondaryCta: {
-      text: "Svi proizvodi",
+      text: "Svi artikli",
       link: "/store",
     },
     imageUrl: null,
-    imageAlt: "Glavna hero slika alata",
-    placeholderLabel: "Placeholder: Glavna hero slika alata",
+    imageAlt: "pıko — Mašine i alati. Sve za dom, na jednom mjestu.",
+    placeholderLabel: "pıko — Mašine i alati",
     sideCards: [
       {
         badge: "18V & 36V Pro",
@@ -149,48 +155,49 @@ export const homeConfig: HomeConfig = {
     title: "Popularne kategorije",
     viewAllText: "Pogledaj sve kategorije",
     viewAllLink: "/store",
+    /**
+     * Konfiguracija popularnih kategorija na početnoj stranici:
+     * - title: Naziv kategorije koji se prikazuje na kartici
+     * - link: Relativna putanja (npr. "/categories/akumulatorski-alati" ili "/store")
+     * - imageUrl: Link slike (npr. "https://placehold.co/600x400" ili lokalna slika)
+     * - imageAlt: Alt opis slike za SEO i pristupačnost
+     */
     items: [
       {
         title: "Akumulatorski alati",
-        handle: "akumulatorski-alati",
-        description: "Bušilice, brusilice i baterijski paketi.",
-        icon: "battery",
-        imageUrl: null,
+        link: "/categories/akumulatorski-alati",
+        imageUrl: "https://placehold.co/1080x1920?text=Akumulatorski+alati",
+        imageAlt: "Akumulatorski alati",
       },
       {
         title: "Električni alati",
-        handle: "elektricni-alati",
-        description: "Ugaone brusilice, testere i čekići.",
-        icon: "zap",
-        imageUrl: null,
+        link: "/categories/elektricni-alati",
+        imageUrl: "https://placehold.co/1080x1920?text=Električni+alati",
+        imageAlt: "Električni alati",
       },
       {
         title: "Ručni alati",
-        handle: "rucni-alati",
-        description: "Ključevi, nasadni setovi i kliješta.",
-        icon: "wrench",
-        imageUrl: null,
+        link: "/categories/rucni-alati",
+        imageUrl: "https://placehold.co/1080x1920?text=Ručni+alati",
+        imageAlt: "Ručni alati",
       },
       {
         title: "Radionica i garaža",
-        handle: "radionica-i-garaza",
-        description: "Dizalice, radionička kolica i stalci.",
-        icon: "warehouse",
-        imageUrl: null,
+        link: "/categories/radionica-i-garaza",
+        imageUrl: "https://placehold.co/1080x1920?text=Radionica+i+garaža",
+        imageAlt: "Radionica i garaža",
       },
       {
         title: "Vrt i bašta",
-        handle: "vrt-i-basta",
-        description: "Kosilice, trimeri i perači pod pritiskom.",
-        icon: "trees",
-        imageUrl: null,
+        link: "/categories/vrt-i-basta",
+        imageUrl: "https://placehold.co/1080x1920?text=Vrt+i+bašta",
+        imageAlt: "Vrt i bašta",
       },
       {
         title: "Zaštitna oprema",
-        handle: "zastitna-oprema",
-        description: "Zaštitne rukavice, obuća i naočale.",
-        icon: "shield",
-        imageUrl: null,
+        link: "/categories/zastitna-oprema",
+        imageUrl: "https://placehold.co/1080x1920?text=Zaštitna+oprema",
+        imageAlt: "Zaštitna oprema",
       },
     ],
   },

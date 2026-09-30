@@ -59,8 +59,8 @@ const AddressSelect = ({
               className={clx(
                 "relative p-5 rounded-xl border text-left cursor-pointer transition-all duration-200 flex flex-col justify-between min-h-[190px] group select-none",
                 isSelected
-                  ? "border-[#0053E2] bg-[#0053E2]/5 shadow-xs ring-1 ring-[#0053E2]/20"
-                  : "border-border/80 bg-background hover:bg-muted/30 hover:border-[#0053E2]/40 shadow-2xs"
+                  ? "border-primary bg-primary/10 shadow-xs ring-1 ring-primary/40"
+                  : "border-border/80 bg-card hover:bg-muted/30 hover:border-primary/50 shadow-2xs"
               )}
               data-testid="shipping-address-card"
             >
@@ -68,11 +68,11 @@ const AddressSelect = ({
                 {/* Header: Name, default badge, and selection check */}
                 <div className="flex items-start justify-between gap-2 mb-1.5">
                   <div className="flex items-center gap-2 flex-wrap">
-                    <span className="text-sm font-bold text-foreground group-hover:text-[#0053E2] transition-colors">
+                    <span className="text-sm font-bold text-foreground transition-colors">
                       {address.first_name} {address.last_name}
                     </span>
                     {address.is_default_shipping && (
-                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#0053E2]/10 text-[#0053E2]">
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-primary text-primary-foreground">
                         Zadana
                       </span>
                     )}
@@ -81,8 +81,8 @@ const AddressSelect = ({
                     className={clx(
                       "size-5 rounded-full border flex items-center justify-center shrink-0 mt-0.5 transition-colors",
                       isSelected
-                        ? "border-[#0053E2] bg-[#0053E2] text-white"
-                        : "border-muted-foreground/30 bg-card group-hover:border-[#0053E2]/50"
+                        ? "border-primary bg-primary text-primary-foreground"
+                        : "border-muted-foreground/30 bg-card group-hover:border-primary/50"
                     )}
                   >
                     {isSelected && <Check className="size-3 stroke-[3]" />}
@@ -129,22 +129,22 @@ const AddressSelect = ({
           className={clx(
             "p-5 rounded-xl border border-dashed flex flex-col justify-between text-left cursor-pointer transition-all duration-200 min-h-[190px] group select-none",
             !selectedAddress
-              ? "border-[#0053E2] bg-[#0053E2]/5 shadow-xs ring-1 ring-[#0053E2]/20"
-              : "border-border/80 bg-background hover:border-[#0053E2]/50 hover:bg-[#0053E2]/5"
+              ? "border-primary bg-primary/10 shadow-xs ring-1 ring-primary/40"
+              : "border-border/80 bg-card hover:border-primary/50 hover:bg-primary/5"
           )}
           data-testid="enter-new-address-card"
         >
           <div>
             <div className="flex items-start justify-between gap-2 mb-1.5">
-              <span className="text-sm font-bold text-foreground group-hover:text-[#0053E2] transition-colors">
+              <span className="text-sm font-bold text-foreground transition-colors">
                 Nova adresa
               </span>
               <div
                 className={clx(
                   "size-5 rounded-full border flex items-center justify-center shrink-0 mt-0.5 transition-colors",
                   !selectedAddress
-                    ? "border-[#0053E2] bg-[#0053E2] text-white"
-                    : "border-muted-foreground/30 bg-card group-hover:border-[#0053E2]/50"
+                    ? "border-primary bg-primary text-primary-foreground"
+                    : "border-muted-foreground/30 bg-card group-hover:border-primary/50"
                 )}
               >
                 {!selectedAddress && <Check className="size-3 stroke-[3]" />}
@@ -155,7 +155,7 @@ const AddressSelect = ({
             </p>
           </div>
 
-          <div className="flex items-center gap-1.5 text-xs font-semibold text-[#0053E2] pt-3 border-t border-border/40">
+          <div className="flex items-center gap-1.5 text-xs font-bold text-foreground pt-3 border-t border-border/40">
             <Plus className="size-4 stroke-[2.5]" />
             <span>Unesi novu adresu</span>
           </div>

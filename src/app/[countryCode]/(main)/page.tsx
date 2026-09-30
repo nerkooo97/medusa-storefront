@@ -10,9 +10,11 @@ import { listCollections } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
 
 export const metadata: Metadata = {
-  title: "Alati & Mašine | Profesionalni alati, mašine i oprema",
+  title: {
+    absolute: "pıko | Sve za dom, na jednom mjestu.",
+  },
   description:
-    "Kupite profesionalne akumulatorske, električne i ručne alate, radioničku opremu i mašine uz garanciju i brzu dostavu.",
+    "pıko - webshop mašina, alata i opreme. Sve za dom, na jednom mjestu. Pouzdana kupovina, brza dostava i garancija.",
 }
 
 export default async function Home(props: {

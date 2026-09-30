@@ -14,7 +14,7 @@ export default function BrandStrip() {
           {brands.list.map((brand, idx) => (
             <div
               key={idx}
-              className="h-14 rounded-xl border border-dashed border-border/80 bg-muted/30 flex items-center justify-center p-2 text-center hover:bg-muted/60 hover:border-[#0053E2]/40 transition-all group"
+              className="h-14 rounded-xl border border-dashed border-border/80 bg-muted/30 flex items-center justify-center p-2 text-center hover:bg-muted/60 hover:border-primary transition-all group"
             >
               <span className="text-xs sm:text-sm font-black tracking-wider text-muted-foreground group-hover:text-foreground transition-colors uppercase select-none">
                 {brand}

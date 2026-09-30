@@ -39,11 +39,11 @@ export interface ShopConfig {
 export const SHOPS: Record<string, ShopConfig> = {
   alati: {
     id: "alati",
-    name: "Alati & Mašine",
+    name: "pıko",
     channel: {
-      name: "Alati Shop",
+      name: "pıko",
       handle: "alati",
-      description: "Prodajni kanal za električne, akumulatorske i ručne alate",
+      description: "pıko (piko.ba) — Mašine i alati. Sve za dom, na jednom mjestu.",
     },
     rootCategory: {
       name: "Alati i Mašine",
@@ -59,14 +59,47 @@ export const SHOPS: Record<string, ShopConfig> = {
       { name: "Pribor & Oprema", handle: "pribor", icon: "Boxes" },
     ],
     branding: {
-      logoText: "ALATI",
-      subnavLabel: "Kategorije alata",
+      logoText: "pıko",
+      subnavLabel: "Kategorije mašina i alata",
       livePromo: {
-        title: "Alati",
-        badge: "Uživo",
+        title: "pıko",
+        badge: "Novo",
         link: "/store",
       },
-      dealsLabel: "Najbolje ponude",
+      dealsLabel: "Akcijske ponude",
+    },
+    defaultPort: 8000,
+  },
+  piko: {
+    id: "piko",
+    name: "pıko",
+    channel: {
+      name: "pıko",
+      handle: "alati",
+      description: "pıko (piko.ba) — Mašine i alati. Sve za dom, na jednom mjestu.",
+    },
+    rootCategory: {
+      name: "Alati i Mašine",
+      handle: "alati",
+    },
+    categories: [
+      { name: "Akumulatorski alati", handle: "aku-alati", icon: "Drill" },
+      { name: "Ručni alati", handle: "rucni-alati", icon: "Wrench" },
+      { name: "Električni alati", handle: "elektricni-alati", icon: "Hammer" },
+      { name: "Zaštitna oprema", handle: "zastitna-oprema", icon: "ShieldAlert" },
+      { name: "Radionica i Garaža", handle: "radionica", icon: "Warehouse" },
+      { name: "Vrt i Bašta", handle: "vrt-i-basta", icon: "Trees" },
+      { name: "Pribor & Oprema", handle: "pribor", icon: "Boxes" },
+    ],
+    branding: {
+      logoText: "pıko",
+      subnavLabel: "Kategorije mašina i alata",
+      livePromo: {
+        title: "pıko",
+        badge: "Novo",
+        link: "/store",
+      },
+      dealsLabel: "Akcijske ponude",
     },
     defaultPort: 8000,
   },

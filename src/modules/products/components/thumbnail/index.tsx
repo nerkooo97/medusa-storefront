@@ -10,6 +10,7 @@ type ThumbnailProps = {
   size?: "small" | "medium" | "large" | "full" | "square"
   isFeatured?: boolean
   className?: string
+  fit?: "cover" | "contain"
   "data-testid"?: string
 }
 
@@ -19,6 +20,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
   size = "small",
   isFeatured,
   className,
+  fit = "cover",
   "data-testid": dataTestid,
 }) => {
   const initialImage = thumbnail || images?.[0]?.url
@@ -40,7 +42,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
       )}
       data-testid={dataTestid}
     >
-      <ImageOrPlaceholder image={initialImage} size={size} />
+      <ImageOrPlaceholder image={initialImage} size={size} fit={fit} />
     </Container>
   )
 }
@@ -48,14 +50,20 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
 const ImageOrPlaceholder = ({
   image,
   size,
-}: Pick<ThumbnailProps, "size"> & { image?: string }) => {
+  fit = "cover",
+}: Pick<ThumbnailProps, "size" | "fit"> & { image?: string }) => {
   return image ? (
     <Image
       src={image}
       alt="Thumbnail"
-      className="absolute inset-0 object-cover object-center"
+      className={clx(
+        "absolute inset-0 transition-transform duration-300 ease-out",
+        fit === "contain"
+          ? "object-contain object-center p-3 sm:p-4 group-hover:scale-105"
+          : "object-cover object-center"
+      )}
       draggable={false}
-      quality={50}
+      quality={75}
       sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
       fill
     />

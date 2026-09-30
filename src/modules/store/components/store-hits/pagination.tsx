@@ -19,8 +19,8 @@ const SearchPagination = () => {
       className={clx(
         "min-w-10 h-10 px-3 flex items-center justify-center rounded-lg text-sm font-semibold transition-all duration-150",
         {
-          "bg-[#0053E2] text-white shadow-xs cursor-default": page === currentRefinement,
-          "bg-card hover:bg-muted text-foreground border border-border/70 hover:border-[#0053E2]/40": page !== currentRefinement,
+          "bg-primary text-primary-foreground font-bold shadow-xs cursor-default": page === currentRefinement,
+          "bg-card hover:bg-muted text-foreground border border-border hover:border-primary": page !== currentRefinement,
         }
       )}
       disabled={page === currentRefinement}

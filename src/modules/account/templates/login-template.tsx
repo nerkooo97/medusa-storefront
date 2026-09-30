@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useSearchParams } from "next/navigation"
 import Image from "next/image"
 import Register from "@modules/account/components/register"
 import Login from "@modules/account/components/login"
@@ -11,8 +12,12 @@ export enum LOGIN_VIEW {
   REGISTER = "register",
 }
 
-const LoginTemplate = () => {
-  const [currentView, setCurrentView] = useState<LOGIN_VIEW>(LOGIN_VIEW.SIGN_IN)
+const LoginTemplate = ({ initialView }: { initialView?: LOGIN_VIEW }) => {
+  const searchParams = useSearchParams()
+  const modeParam = searchParams.get("mode")
+  const defaultView =
+    initialView ?? (modeParam === "register" ? LOGIN_VIEW.REGISTER : LOGIN_VIEW.SIGN_IN)
+  const [currentView, setCurrentView] = useState<LOGIN_VIEW>(defaultView)
   const banner = siteBanners.auth.loginBanner
 
   return (

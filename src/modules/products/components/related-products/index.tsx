@@ -23,7 +23,7 @@ export default async function RelatedProducts({
 
   // Define query to fetch related products
   const queryParams: HttpTypes.StoreProductListParams = {
-    limit: 12,
+    limit: 10,
     is_giftcard: false,
     region_id: region.id,
   }
@@ -53,7 +53,7 @@ export default async function RelatedProducts({
   if (products.length < 2) {
     const fallbackProducts = await listProducts({
       queryParams: {
-        limit: 12,
+        limit: 10,
         is_giftcard: false,
         region_id: region.id,
       },
@@ -87,8 +87,8 @@ export default async function RelatedProducts({
         </p>
       </div>
 
-      {/* Compact Grid: 6 cols on XL, 5 on LG, 4 on MD, 3 on SM, 2 on Mobile */}
-      <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4">
+      {/* Grid: 5 cols on desktop, 4 on MD, 3 on SM, 2 on Mobile */}
+      <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-5">
         {products.map((item) => {
           const { cheapestPrice } = getProductPrice({ product: item })
 
@@ -96,16 +96,16 @@ export default async function RelatedProducts({
             <li key={item.id} className="h-full">
               <LocalizedClientLink
                 href={`/products/${item.handle}`}
-                className="group flex flex-col h-full bg-card rounded-xl border border-border/80 p-2.5 hover:border-primary/50 hover:shadow-xs transition-all"
+                className="group flex flex-col h-full transition-all"
               >
-                {/* Compact Square Image Container - borderless, fully filled & centered */}
-                <div className="relative aspect-square w-full rounded-lg overflow-hidden bg-white mb-2">
+                {/* Rounded grey image container */}
+                <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-[#EDEDF0] mb-2.5">
                   {item.thumbnail ? (
                     <Image
                       src={item.thumbnail}
                       alt={item.title}
                       fill
-                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 16vw"
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 20vw"
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
                     />
                   ) : (
@@ -115,24 +115,24 @@ export default async function RelatedProducts({
                   )}
 
                   {cheapestPrice?.price_type === "sale" && (
-                    <span className="absolute top-1.5 left-1.5 text-[9px] font-bold px-1.5 py-0.5 rounded bg-destructive/10 text-destructive">
+                    <span className="absolute top-2 left-2 z-10 bg-[#E11D48] text-white text-[10px] font-black px-2 py-0.5 rounded shadow-2xs uppercase tracking-wider">
                       -{cheapestPrice.percentage_diff}%
                     </span>
                   )}
                 </div>
 
                 {/* Product Title */}
-                <h3 className="text-xs font-semibold text-foreground line-clamp-2 leading-snug group-hover:text-primary transition-colors flex-1">
+                <h3 className="text-sm sm:text-[15px] font-bold text-[#16140F] line-clamp-2 leading-snug flex-1">
                   {item.title}
                 </h3>
 
                 {/* Price */}
-                <div className="mt-2 pt-1.5 border-t border-border/40 flex items-baseline justify-between gap-1 flex-wrap">
-                  <span className="text-xs sm:text-sm font-extrabold text-foreground">
+                <div className="mt-1 pt-1 flex items-baseline justify-between gap-1 flex-wrap">
+                  <span className={`text-sm sm:text-base font-black tracking-tight ${cheapestPrice?.price_type === "sale" ? "text-[#E11D48]" : "text-[#16140F]"}`}>
                     {cheapestPrice?.calculated_price}
                   </span>
                   {cheapestPrice?.price_type === "sale" && (
-                    <span className="text-[10px] text-muted-foreground line-through">
+                    <span className="text-xs text-muted-foreground line-through font-normal">
                       {cheapestPrice.original_price}
                     </span>
                   )}

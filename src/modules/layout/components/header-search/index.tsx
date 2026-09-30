@@ -1,6 +1,6 @@
 "use client"
 
-import { Sparkles, Search as SearchIcon } from "lucide-react"
+import { Search as SearchIcon } from "lucide-react"
 import { useCallback, useEffect, useRef, useState } from "react"
 import type { SearchClient } from "instantsearch.js"
 import {
@@ -101,7 +101,7 @@ export default function HeaderSearch() {
   const { state: isOpen, open, close } = useToggleState()
 
   return (
-    <div className="flex items-center ml-auto md:ml-0 md:flex-1 md:max-w-2xl md:mx-4">
+    <div className="flex items-center w-full">
       {/* Mobile Search Icon Trigger (visible only on mobile) */}
       <button
         type="button"
@@ -116,7 +116,7 @@ export default function HeaderSearch() {
       {/* Desktop Search Input Pill (hidden on mobile, visible on md and up) */}
       <div
         onClick={open}
-        className="hidden md:flex group relative items-center w-full h-11 bg-white hover:bg-white/95 border-0 rounded-full px-4 cursor-pointer transition-all duration-200 shadow-xs"
+        className="hidden md:flex group relative items-center w-full h-11 bg-[#F5F6F8] hover:bg-white border border-neutral-200 rounded-full px-4 cursor-pointer transition-all duration-200 shadow-xs"
       >
         {/* Search Icon */}
         <div className="flex items-center justify-center mr-2.5 text-muted-foreground">

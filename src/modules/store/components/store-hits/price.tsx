@@ -36,10 +36,10 @@ const HitPrice = ({ hit, currencyCode }: HitPriceProps) => {
   return (
     <div className="flex flex-wrap items-baseline gap-1.5" data-testid="product-price">
       <Text
-        className={clx("text-sm sm:text-base font-bold tracking-tight", {
-          "text-rose-600": on_sale,
-          "text-foreground": !on_sale,
-        })}
+        className={clx(
+          "text-sm sm:text-base font-black tracking-tight",
+          on_sale ? "text-[#E11D48]" : "text-[#16140F]"
+        )}
         data-testid="price"
       >
         {isRange ? `${format(min_price)} - ${format(max)}` : format(min_price)}

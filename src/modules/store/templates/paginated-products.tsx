@@ -35,7 +35,7 @@ export default async function PaginatedProducts({
   optionValueIds?: OptionValueIds
 }) {
   const queryParams: PaginatedProductsParams = {
-    limit: 12,
+    limit: 15,
   }
 
   if (collectionId) {
@@ -103,14 +103,14 @@ export default async function PaginatedProducts({
           </p>
           <LocalizedClientLink
             href="/store"
-            className="mt-4 inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#0053E2] text-white text-xs font-semibold hover:bg-[#0046c0] transition-colors"
+            className="mt-4 inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-primary-foreground text-xs font-bold hover:bg-primary/90 transition-colors shadow-xs"
           >
             Pregledaj sve artikle
           </LocalizedClientLink>
         </div>
       ) : (
         <ul
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5 w-full"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-5 w-full"
           data-testid="products-list"
         >
           {products.map((p) => {

@@ -38,8 +38,8 @@ export function Pagination({
       className={clx(
         "min-w-10 h-10 px-3 flex items-center justify-center rounded-lg text-sm font-semibold transition-all duration-150 cursor-pointer",
         {
-          "bg-[#0053E2] text-white shadow-xs cursor-default": isCurrent,
-          "bg-card hover:bg-muted text-foreground border border-border/70 hover:border-[#0053E2]/40": !isCurrent,
+          "bg-primary text-primary-foreground font-bold shadow-xs cursor-default": isCurrent,
+          "bg-card hover:bg-muted text-foreground border border-border hover:border-primary": !isCurrent,
         }
       )}
       disabled={isCurrent}

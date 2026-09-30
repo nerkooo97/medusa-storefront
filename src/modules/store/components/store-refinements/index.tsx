@@ -36,17 +36,17 @@ const StoreRefinements = ({
       <button
         type="button"
         onClick={() => setIsOpenMobile((prev) => !prev)}
-        className="small:hidden flex items-center justify-between w-full p-3.5 bg-card border border-border/80 rounded-xl text-sm font-semibold text-foreground shadow-2xs hover:border-[#0053E2]/50 transition-all active:scale-[0.99]"
+        className="small:hidden flex items-center justify-between w-full p-3.5 bg-card border border-border rounded-xl text-sm font-semibold text-foreground shadow-2xs hover:border-primary transition-all active:scale-[0.99]"
         aria-expanded={isOpenMobile}
         aria-label="Filteri"
       >
         <div className="flex items-center gap-2.5">
-          <div className="size-8 rounded-lg bg-[#0053E2]/10 text-[#0053E2] flex items-center justify-center">
-            <SlidersHorizontal className="size-4" />
+          <div className="size-8 rounded-lg bg-primary/20 text-foreground flex items-center justify-center">
+            <SlidersHorizontal className="size-4 stroke-[2.2]" />
           </div>
           <span className="font-semibold">Filteri</span>
           {activeCount > 0 && (
-            <span className="size-5 rounded-full bg-[#0053E2] text-white text-[11px] font-bold flex items-center justify-center">
+            <span className="size-5 rounded-full bg-primary text-primary-foreground text-[11px] font-black flex items-center justify-center">
               {activeCount}
             </span>
           )}

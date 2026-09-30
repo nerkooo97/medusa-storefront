@@ -93,7 +93,7 @@ const StoreHits = ({ hitsPerPage, currencyCode }: StoreHitsProps) => {
         </div>
       ) : (
         <ul
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5 w-full"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-5 w-full"
           data-testid="products-list"
         >
           {items.map((hit) => {
@@ -104,29 +104,29 @@ const StoreHits = ({ hitsPerPage, currencyCode }: StoreHitsProps) => {
               <li key={hit.objectID} className="flex">
                 <LocalizedClientLink
                   href={`/products/${hit.handle}`}
-                  className="group flex flex-col w-full bg-card rounded-xl border border-border/70 hover:border-[#0053E2]/50 hover:shadow-md transition-all duration-200 overflow-hidden p-3"
+                  className="group flex flex-col w-full transition-all duration-200"
                 >
                   <div data-testid="product-wrapper" className="flex flex-col flex-1 justify-between">
-                    <div className="relative aspect-square w-full overflow-hidden rounded-lg bg-muted/20 mb-3">
+                    <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-[#EDEDF0] mb-2.5">
                       {isOnSale && (
-                        <span className="absolute top-2 left-2 z-10 bg-rose-600 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow-xs uppercase tracking-wider">
+                        <span className="absolute top-2 left-2 z-10 bg-[#E11D48] text-white text-[10px] font-black px-2 py-0.5 rounded shadow-2xs uppercase tracking-wider">
                           Akcija
                         </span>
                       )}
                       <Thumbnail
                         thumbnail={hit.thumbnail}
                         size="square"
-                        className="!p-0 !rounded-none !shadow-none !border-none !bg-transparent"
+                        className="!p-0 !rounded-none !shadow-none !border-none !bg-transparent object-cover size-full"
                       />
                     </div>
                     <div className="flex flex-col gap-1.5 flex-1 justify-between">
                       <Text
-                        className="text-xs sm:text-sm font-semibold text-foreground group-hover:text-[#0053E2] transition-colors line-clamp-2"
+                        className="text-sm sm:text-[15px] font-bold text-[#16140F] line-clamp-2 leading-snug"
                         data-testid="product-title"
                       >
                         {hit.title}
                       </Text>
-                      <div className="pt-2 border-t border-border/40 mt-auto">
+                      <div className="pt-1 mt-auto">
                         <HitPrice hit={hit} currencyCode={currencyCode} />
                       </div>
                     </div>
