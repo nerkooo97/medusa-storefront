@@ -17,7 +17,7 @@ export default async function FeaturedLatestProducts({
     regionId: region.id,
     queryParams: {
       limit: 10,
-      fields: "*variants.calculated_price",
+      fields: "id,title,handle,thumbnail,*variants.calculated_price",
     },
   }).catch(() => ({ response: { products: [] } }))
 
