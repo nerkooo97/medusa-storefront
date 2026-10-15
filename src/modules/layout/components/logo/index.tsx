@@ -1,6 +1,7 @@
 import React from "react"
 import Image from "next/image"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import { businessConfig } from "@/config/business"
 
 export type LogoProps = {
   className?: string
@@ -15,7 +16,7 @@ export type LogoProps = {
  */
 export function PikoCube({
   className = "size-3.5",
-  title = "pıko paket",
+  title = "3XL paket",
 }: {
   className?: string
   title?: string
@@ -65,25 +66,25 @@ export default function Logo({
   // variant="dark" or "white" -> white logo for dark surfaces (Ink #16140F)
   // variant="light" -> dark logo for light surfaces (Paper #FAF6EC or white)
   const isWhiteLogo = variant === "dark" || variant === "white"
-  const logoSrc = isWhiteLogo ? "/piko-logo-white.png" : "/piko-logo-dark.png"
+  const logoSrc = isWhiteLogo ? "/3xl-white.png" : "/3xl-dark.png"
 
   const sizeConfig = {
     sm: {
       className: "h-7 sm:h-8",
-      width: 180,
-      height: 82,
+      width: 240,
+      height: 72,
       slogan: "text-[10px]",
     },
     md: {
       className: "h-10 sm:h-12 lg:h-14",
-      width: 280,
-      height: 126,
+      width: 320,
+      height: 96,
       slogan: "text-xs",
     },
     lg: {
       className: "h-[44px] sm:h-[52px] lg:h-[60px]",
-      width: 300,
-      height: 136,
+      width: 360,
+      height: 108,
       slogan: "text-xs sm:text-sm",
     },
   }[size]
@@ -93,12 +94,12 @@ export default function Logo({
       href="/"
       className={`inline-flex flex-col select-none group transition-opacity hover:opacity-95 shrink-0 ${className}`}
       data-testid={dataTestId}
-      aria-label="pıko — Sve za dom, na jednom mjestu."
+      aria-label={`${businessConfig.name} — Sve za dom, na jednom mjestu.`}
     >
       <div className="relative inline-flex items-center">
         <Image
           src={logoSrc}
-          alt="pıko"
+          alt={businessConfig.name}
           width={sizeConfig.width}
           height={sizeConfig.height}
           priority

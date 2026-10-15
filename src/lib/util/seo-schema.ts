@@ -4,7 +4,7 @@ import { HttpTypes } from "@medusajs/types"
 
 /**
  * Vraća kanonsku baznu adresu za Schema.org.
- * U produkciji uvijek preferira službenu domenu https://piko.ba
+ * U produkciji uvijek preferira službenu domenu https://3xl.ba
  * kako bi Google ispravno indeksirao produkcijske URL-ove.
  */
 export function getCanonicalSiteUrl(): string {
@@ -34,10 +34,10 @@ export function getOrganizationAndWebsiteSchema(siteUrl = getCanonicalSiteUrl())
         url: siteUrl,
         logo: {
           "@type": "ImageObject",
-          url: `${siteUrl}/piko-logo-dark.png`,
+          url: `${siteUrl}/3xl-dark.png`,
           caption: businessConfig.name,
         },
-        image: `${siteUrl}/piko-logo-dark.png`,
+        image: `${siteUrl}/3xl-dark.png`,
         description: `${businessConfig.name} (${businessConfig.domain}) — Vaša online trgovina mašina i alata. Sve za dom, radionicu i vrt na jednom mjestu.`,
         email: businessConfig.contact.email,
         telephone: businessConfig.contact.phone,
@@ -71,11 +71,12 @@ export function getOrganizationAndWebsiteSchema(siteUrl = getCanonicalSiteUrl())
         url: siteUrl,
         name: businessConfig.name,
         alternateName: [
-          "pıko",
-          "piko.ba",
-          "pıko trgovina",
-          "pıko online shop",
-          "pıko alati",
+          "3XL",
+          "3xl",
+          "3xl.ba",
+          "3XL trgovina",
+          "3XL online shop",
+          "3XL alati",
         ],
         publisher: {
           "@id": orgId,

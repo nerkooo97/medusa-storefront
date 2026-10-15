@@ -7,7 +7,7 @@ import { ArrowRight, ChevronLeft, ChevronRight, Image as ImageIcon } from "lucid
 
 /**
  * =======================================================================
- * KONFIGURACIJA HERO SEKCIJE (pıko.ba)
+ * KONFIGURACIJA HERO SEKCIJE (3xl.ba)
  * =======================================================================
  * Ovdje možete direktno promijeniti slike, tekstove, bedževe i linkove.
  *
@@ -45,11 +45,11 @@ export const HERO_CONFIG: HeroSectionConfig = {
   // 1. GLAVNI VELIKI BANER (Lijeva strana)
   mainCard: {
     id: "main-banner",
-    title: "Pıko Dani Alata i Mašina!",
+    title: "3XL Dani Alata i Mašina!",
     subtitle: "Uštedite do 25% na odabrani asortiman uz kupone i brzu dostavu.",
     href: "/store",
     imageUrl: "/images/homepage/hero/media-piko-dostava.webp", // <-- OVDJE UNESITE URL SLIKE (npr. "/hero/main-banner.jpg")
-    imageAlt: "Pıko Dani Alata",
+    imageAlt: "3XL Dani Alata",
     badge: "POSEBNA PONUDA",
     ctaText: "Kupi odmah",
     placeholderLabel: "Glavni baner (800x900px)",
@@ -60,11 +60,11 @@ export const HERO_CONFIG: HeroSectionConfig = {
     // Kolona 1 - Gore (Kvadrat 1)
     {
       id: "card-1",
-      title: "Dobrodošli u pıko",
+      title: "Dobrodošli u 3XL",
       subtitle: "Brza i sigurna dostava alata i mašina na vaša vrata širom BiH.",
       href: "/customer-service",
       imageUrl: "/images/homepage/hero/media-piko-uredenje.webp",
-      imageAlt: "Dobrodošli u pıko",
+      imageAlt: "Dobrodošli u 3XL",
       badge: "NOVI KORISNICI",
       ctaText: "Saznaj više",
       placeholderLabel: "Kartica 1 (Kvadrat)",
@@ -122,12 +122,12 @@ export const HERO_CONFIG: HeroSectionConfig = {
     // Kolona 3 - Dolje (Kvadrat 6)
     {
       id: "card-6",
-      title: "Pıko Klub pogodnosti",
+      title: "3XL Klub pogodnosti",
       subtitle: "Ekskluzivni popusti i produžena garancija za vjerne kupce.",
       href: "/content/terms-of-use",
       imageUrl: "https://placehold.co/600x400",
-      imageAlt: "Pıko Klub",
-      badge: "PIKO KLUB",
+      imageAlt: "3XL Klub",
+      badge: "3XL KLUB",
       ctaText: null,
       placeholderLabel: "Kartica 6 (Kvadrat)",
     },

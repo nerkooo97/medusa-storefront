@@ -8,8 +8,8 @@ export function renderLockedPageHtml(hasError: boolean = false): string {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>pıko — Privatni pristup trgovini</title>
-  <link rel="icon" href="/piko-favicon.png" type="image/png">
+  <title>3XL — Privatni pristup trgovini</title>
+  <link rel="icon" href="/3xl-favicon.png" type="image/png">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -128,7 +128,7 @@ export function renderLockedPageHtml(hasError: boolean = false): string {
 <body>
   <div class="card">
     <div class="logo-container">
-      <img src="/piko-logo-white.png" alt="pıko" class="logo" />
+      <img src="/3xl-white.png" alt="3XL" class="logo" />
     </div>
     <div><span class="badge">🔒 Privatno testiranje</span></div>
     <h1>Trgovina je u pripremi</h1>
@@ -141,7 +141,7 @@ export function renderLockedPageHtml(hasError: boolean = false): string {
       <button type="submit">Otključaj trgovinu</button>
     </form>
     
-    <div class="footer-note">© 2026 pıko d.o.o. Sva prava zadržana.</div>
+    <div class="footer-note">© 2026 3XL d.o.o. Sva prava zadržana.</div>
   </div>
 </body>
 </html>`

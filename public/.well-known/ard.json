@@ -1,29 +1,29 @@
 {
   "$schema": "https://specs.agentstandards.org/ard/v1/schema.json",
   "specVersion": "1.0",
-  "name": "pıko",
+  "name": "3XL",
   "description": "Online trgovina mašina, alata i opreme za dom i radionicu u Bosni i Hercegovini",
-  "documentationUrl": "https://piko.ba/ba/podrska",
+  "documentationUrl": "https://3xl.ba/ba/podrska",
   "entries": [
     {
       "identifier": "store-catalog",
       "displayName": "Katalog Proizvoda",
       "type": "storefront",
-      "endpoint": "https://piko.ba/ba/store",
+      "endpoint": "https://3xl.ba/ba/store",
       "auth": { "type": "none" }
     },
     {
       "identifier": "faq-spec",
       "displayName": "Česta pitanja i uslovi poslovanja",
       "type": "faq",
-      "endpoint": "https://piko.ba/ba/cesta-pitanja",
+      "endpoint": "https://3xl.ba/ba/cesta-pitanja",
       "auth": { "type": "none" }
     },
     {
       "identifier": "llms-info",
       "displayName": "LLM Sažetak",
       "type": "llms",
-      "endpoint": "https://piko.ba/llms.txt",
+      "endpoint": "https://3xl.ba/llms.txt",
       "auth": { "type": "none" }
     }
   ]

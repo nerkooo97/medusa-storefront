@@ -61,16 +61,16 @@ export interface BusinessConfig {
 }
 
 export const businessConfig: BusinessConfig = {
-  name: "pıko",
-  legalName: "pıko d.o.o.",
-  domain: "piko.ba",
+  name: "3XL",
+  legalName: "3XL d.o.o.",
+  domain: "3xl.ba",
 
   contact: {
     phone: "080 020 261",
     phoneTel: "080020261",
-    email: "info@piko.ba",
-    supportEmail: "podrska@piko.ba",
-    privacyEmail: "podrska@piko.ba",
+    email: "info@3xl.ba",
+    supportEmail: "podrska@3xl.ba",
+    privacyEmail: "podrska@3xl.ba",
     workingHours: "Pon - Sub: 08:00 - 18:00",
     openingHours: {
       opens: "08:00",

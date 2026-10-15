@@ -39,11 +39,11 @@ export interface ShopConfig {
 export const SHOPS: Record<string, ShopConfig> = {
   alati: {
     id: "alati",
-    name: "pıko",
+    name: "3XL",
     channel: {
-      name: "pıko",
+      name: "3XL",
       handle: "alati",
-      description: "pıko (piko.ba) — Mašine i alati. Sve za dom, na jednom mjestu.",
+      description: "3XL (3xl.ba) — Mašine i alati. Sve za dom, na jednom mjestu.",
     },
     rootCategory: {
       name: "Alati i Mašine",
@@ -59,10 +59,43 @@ export const SHOPS: Record<string, ShopConfig> = {
       { name: "Pribor & Oprema", handle: "pribor", icon: "Boxes" },
     ],
     branding: {
-      logoText: "pıko",
+      logoText: "3XL",
       subnavLabel: "Kategorije mašina i alata",
       livePromo: {
-        title: "pıko",
+        title: "3XL",
+        badge: "Novo",
+        link: "/store",
+      },
+      dealsLabel: "Akcijske ponude",
+    },
+    defaultPort: 8000,
+  },
+  "3xl": {
+    id: "3xl",
+    name: "3XL",
+    channel: {
+      name: "3XL",
+      handle: "alati",
+      description: "3XL (3xl.ba) — Mašine i alati. Sve za dom, na jednom mjestu.",
+    },
+    rootCategory: {
+      name: "Alati i Mašine",
+      handle: "alati",
+    },
+    categories: [
+      { name: "Akumulatorski alati", handle: "aku-alati", icon: "Drill" },
+      { name: "Ručni alati", handle: "rucni-alati", icon: "Wrench" },
+      { name: "Električni alati", handle: "elektricni-alati", icon: "Hammer" },
+      { name: "Zaštitna oprema", handle: "zastitna-oprema", icon: "ShieldAlert" },
+      { name: "Radionica i Garaža", handle: "radionica", icon: "Warehouse" },
+      { name: "Vrt i Bašta", handle: "vrt-i-basta", icon: "Trees" },
+      { name: "Pribor & Oprema", handle: "pribor", icon: "Boxes" },
+    ],
+    branding: {
+      logoText: "3XL",
+      subnavLabel: "Kategorije mašina i alata",
+      livePromo: {
+        title: "3XL",
         badge: "Novo",
         link: "/store",
       },
@@ -72,11 +105,11 @@ export const SHOPS: Record<string, ShopConfig> = {
   },
   piko: {
     id: "piko",
-    name: "pıko",
+    name: "3XL",
     channel: {
-      name: "pıko",
+      name: "3XL",
       handle: "alati",
-      description: "pıko (piko.ba) — Mašine i alati. Sve za dom, na jednom mjestu.",
+      description: "3XL (3xl.ba) — Mašine i alati. Sve za dom, na jednom mjestu.",
     },
     rootCategory: {
       name: "Alati i Mašine",
@@ -92,10 +125,10 @@ export const SHOPS: Record<string, ShopConfig> = {
       { name: "Pribor & Oprema", handle: "pribor", icon: "Boxes" },
     ],
     branding: {
-      logoText: "pıko",
+      logoText: "3XL",
       subnavLabel: "Kategorije mašina i alata",
       livePromo: {
-        title: "pıko",
+        title: "3XL",
         badge: "Novo",
         link: "/store",
       },

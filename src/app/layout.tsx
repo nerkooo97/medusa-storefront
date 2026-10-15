@@ -16,21 +16,23 @@ const bricolageGrotesque = Bricolage_Grotesque({
   display: "swap",
 })
 
+import { businessConfig } from "@/config/business"
+
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
   title: {
-    default: "pıko | Sve za dom, na jednom mjestu.",
-    template: "%s | pıko",
+    default: `${businessConfig.name} | Sve za dom, na jednom mjestu.`,
+    template: `%s | ${businessConfig.name}`,
   },
   description:
-    "pıko (piko.ba) — Vaša online trgovina mašina i alata. Sve za dom, na jednom mjestu.",
+    `${businessConfig.name} (${businessConfig.domain}) — Vaša online trgovina mašina i alata. Sve za dom, na jednom mjestu.`,
   icons: {
     icon: [
-      { url: "/piko-favicon.png" },
-      { url: "/piko-favicon.png", sizes: "512x512", type: "image/png" },
+      { url: "/3xl-favicon.png" },
+      { url: "/3xl-favicon.png", sizes: "512x512", type: "image/png" },
     ],
-    shortcut: "/piko-favicon.png",
-    apple: "/piko-favicon.png",
+    shortcut: "/3xl-favicon.png",
+    apple: "/3xl-favicon.png",
   },
 }
 

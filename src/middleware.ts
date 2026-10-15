@@ -8,7 +8,7 @@ const PUBLISHABLE_API_KEY = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
 const DEFAULT_REGION = process.env.NEXT_PUBLIC_DEFAULT_REGION || "ba"
 
 const STORE_PROTECTED = process.env.STORE_PROTECTED === "true"
-const STORE_SECRET_TOKEN = process.env.STORE_SECRET_TOKEN || "piko2026"
+const STORE_SECRET_TOKEN = process.env.STORE_SECRET_TOKEN || "3xl2026"
 
 const regionMapCache = {
   regionMap: new Map<string, HttpTypes.StoreRegion>(),
@@ -112,7 +112,9 @@ export async function middleware(request: NextRequest) {
 
   // Provjera tajnog linka za privatni pristup trgovini
   if (STORE_PROTECTED) {
-    const secretCookie = request.cookies.get("piko_preview_access")?.value
+    const secretCookie =
+      request.cookies.get("3xl_preview_access")?.value ||
+      request.cookies.get("piko_preview_access")?.value
     const querySecret =
       request.nextUrl.searchParams.get("preview") ||
       request.nextUrl.searchParams.get("secret") ||
@@ -126,7 +128,7 @@ export async function middleware(request: NextRequest) {
       cleanUrl.searchParams.delete("token")
 
       const response = NextResponse.redirect(cleanUrl)
-      response.cookies.set("piko_preview_access", STORE_SECRET_TOKEN, {
+      response.cookies.set("3xl_preview_access", STORE_SECRET_TOKEN, {
         path: "/",
         maxAge: 60 * 60 * 24 * 30, // 30 dana
         httpOnly: true,

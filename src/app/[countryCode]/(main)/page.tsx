@@ -9,12 +9,14 @@ import BrandStrip from "@modules/home/components/brand-strip"
 import { listCollections } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
 
+import { businessConfig } from "@/config/business"
+
 export const metadata: Metadata = {
   title: {
-    absolute: "pıko | Sve za dom, na jednom mjestu.",
+    absolute: `${businessConfig.name} | Sve za dom, na jednom mjestu.`,
   },
   description:
-    "pıko - webshop mašina, alata i opreme. Sve za dom, na jednom mjestu. Pouzdana kupovina, brza dostava i garancija.",
+    `${businessConfig.name} - webshop mašina, alata i opreme. Sve za dom, na jednom mjestu. Pouzdana kupovina, brza dostava i garancija.`,
 }
 
 export default async function Home(props: {

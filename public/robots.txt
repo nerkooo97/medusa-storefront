@@ -1,4 +1,4 @@
-# robots.txt for piko.ba
+# robots.txt for 3xl.ba
 User-agent: *
 Allow: /
 Allow: /llms.txt
@@ -28,4 +28,4 @@ Allow: /
 User-agent: OraBot
 Allow: /
 
-Sitemap: https://piko.ba/sitemap.xml
+Sitemap: https://3xl.ba/sitemap.xml

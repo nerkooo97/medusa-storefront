@@ -20,7 +20,7 @@ export default async function Nav() {
       {/* Top Row: Main Header */}
       <header className="bg-[#16140F] text-[#FAF6EC]">
         <div className="content-container flex items-center justify-between h-16 sm:h-20 gap-2 sm:gap-4 lg:gap-6">
-          {/* Left: pıko Brand Logo + Sve kategorije (odvojeno sa više razmaka) */}
+          {/* Left: 3XL Brand Logo + Sve kategorije (odvojeno sa više razmaka) */}
           <div className="flex items-center gap-4 sm:gap-6 lg:gap-8 shrink-0">
             <Logo data-testid="nav-store-link" variant="dark" />
             <HeaderCategoriesMenu categories={categories} />

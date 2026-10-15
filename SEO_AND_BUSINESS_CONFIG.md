@@ -18,16 +18,16 @@ Svi kontakt, poslovni, dostavni i pravni podaci nalaze se u samo jednom konfigur
 
 ```typescript
 export interface BusinessConfig {
-  name: string            // Naziv brenda (npr. "pıko")
-  legalName: string       // Puni pravni naziv firme (npr. "pıko d.o.o.")
-  domain: string          // Primarna domena (npr. "piko.ba")
+  name: string            // Naziv brenda (npr. "3XL")
+  legalName: string       // Puni pravni naziv firme (npr. "3XL d.o.o.")
+  domain: string          // Primarna domena (npr. "3xl.ba")
 
   contact: {
     phone: string         // Prikazni format broja (npr. "080 020 261")
     phoneTel: string      // Format za tel: linkove bez razmaka (npr. "080020261")
-    email: string         // Glavni email (npr. "info@piko.ba")
-    supportEmail: string  // Email korisničke podrške (npr. "podrska@piko.ba")
-    privacyEmail: string  // Email za zaštitu podataka (npr. "podrska@piko.ba")
+    email: string         // Glavni email (npr. "info@3xl.ba")
+    supportEmail: string  // Email korisničke podrške (npr. "podrska@3xl.ba")
+    privacyEmail: string  // Email za zaštitu podataka (npr. "podrska@3xl.ba")
     workingHours: string  // Tekstualno radno vrijeme (npr. "Pon - Sub: 08:00 - 18:00")
     openingHours: {
       opens: string       // "08:00" (za Schema.org Google Search)
@@ -174,3 +174,27 @@ Nakon što napravite izmjenu podataka o firmi:
   curl -s http://localhost:8000/ba | grep -o '<script type="application/ld+json">[^<]*</script>'
   curl -s http://localhost:8000/ba/cesta-pitanja | grep -o '<script type="application/ld+json">[^<]*</script>'
   ```
+
+---
+
+## 6. Zaštita Trgovine Tajnim Linkom (Dok traje migracija na server)
+
+Ako trgovina još nije spremna za javnost, a potrebno je omogućiti pristup klijentima, kolegama ili testerima:
+
+### U `.env` na serveru postaviti:
+```env
+STORE_PROTECTED=true
+STORE_SECRET_TOKEN=vasa_tajna_lozinka
+```
+
+### Kako se koristi:
+1. **Tajni link:** Pošaljite osobama link u formatu:
+   `https://3xl.ba?preview=vasa_tajna_lozinka`
+   Klikom na ovaj link:
+   - Token se automatski validira.
+   - Postavlja se siguran cookie `3xl_preview_access` koji traje 30 dana.
+   - URL se automatski čisti u `https://3xl.ba` i sajt ostaje potpuno otključan.
+2. **Forma za unos:** Ako neko otvori `https://3xl.ba` bez linka, prikazaće mu se diskretna 3XL stranica sa poljem za unos lozinke `vasa_tajna_lozinka`.
+3. **Isključivanje zaštite za javno puštanje:**
+   U `.env` na serveru postavite `STORE_PROTECTED=false` i restartujte proces.
+

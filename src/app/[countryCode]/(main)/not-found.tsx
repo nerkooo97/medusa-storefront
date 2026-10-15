@@ -1,9 +1,10 @@
 import { Metadata } from "next"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { Home, ShoppingBag, ShoppingCart, Headphones, SearchX } from "lucide-react"
+import { businessConfig } from "@/config/business"
 
 export const metadata: Metadata = {
-  title: "Stranica nije pronađena (404) | pıko",
+  title: `Stranica nije pronađena (404) | ${businessConfig.name}`,
   description: "Stranica koju tražite ne postoji ili je premještena.",
 }
 

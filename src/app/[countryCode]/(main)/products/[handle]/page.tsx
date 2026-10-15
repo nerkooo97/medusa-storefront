@@ -10,6 +10,7 @@ import {
   getBreadcrumbSchema,
   getCanonicalSiteUrl,
 } from "@lib/util/seo-schema"
+import { businessConfig } from "@/config/business"
 
 type Props = {
   params: Promise<{ countryCode: string; handle: string }>
@@ -62,7 +63,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
       title: product.title,
       description: `${product.title}`,
       openGraph: {
-        title: `${product.title} | pıko`,
+        title: `${product.title} | ${businessConfig.name}`,
         description: `${product.title}`,
         images: product.thumbnail ? [product.thumbnail] : [],
       },

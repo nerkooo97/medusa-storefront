@@ -90,7 +90,7 @@ export interface HomeConfig {
 
 export const homeConfig: HomeConfig = {
   hero: {
-    badge: "pıko.ba — Mašine i alati",
+    badge: "3xl.ba — Mašine i alati",
     title: "Sve za dom, na jednom mjestu.",
     subtitle:
       "Vrhunske mašine, profesionalni i ručni alati, oprema za radionicu i vrt uz brzu dostavu i garanciju.",
@@ -103,8 +103,8 @@ export const homeConfig: HomeConfig = {
       link: "/store",
     },
     imageUrl: null,
-    imageAlt: "pıko — Mašine i alati. Sve za dom, na jednom mjestu.",
-    placeholderLabel: "pıko — Mašine i alati",
+    imageAlt: "3XL — Mašine i alati. Sve za dom, na jednom mjestu.",
+    placeholderLabel: "3XL — Mašine i alati",
     sideCards: [
       {
         badge: "18V & 36V Pro",
