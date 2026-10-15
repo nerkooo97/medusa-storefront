@@ -17,7 +17,7 @@ export const listCategories = async (query?: Record<string, unknown>) => {
       {
         query: {
           fields:
-            "*category_children, *products, *parent_category, *parent_category.parent_category, +metadata",
+            "*category_children, *parent_category, *parent_category.parent_category, +metadata",
           limit,
           ...query,
         },
@@ -57,7 +57,7 @@ export const getCategoryByHandle = async (categoryHandle: string[]) => {
         `/store/product-categories`,
         {
           query: {
-            fields: "*category_children, *products, *parent_category, +metadata",
+            fields: "*category_children, *parent_category, +metadata",
             handle,
           },
           next,
